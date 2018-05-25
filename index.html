@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
+    <title>Avengers Gallery</title>
+</head>
+
+<body>
+    
+    <style>
+        html {
+            box-sizing: border-box;
+            background: #004183;
+            font-family: 'Kavivanar', cursive;
+        }
+        
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wrapper {
+            color: #ffffff;
+            font-size: 50px;
+            text-align: center;
+            display: flex;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            transition: all 0.7s ease-out;
+        }
+        
+        .image1 {
+            background: url('ironman.jpg');
+            background-position: center;
+        }
+        
+        .image2 {
+            background: url('thor.jpg');
+            background-position: center;
+        }
+        
+        .image3 {
+            background: url('thanos.jpg');
+            background-position: center;
+            color: #6f0101;
+            font-weight: 800;
+        }
+        
+        .image4 {
+            background: url('captain.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .image5 {
+            background: url('hulk.jpg');
+            background-position: center;
+        }
+        
+        .image > * {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.7s cubic-bezier(0, .55, 1, 1.5);
+        }
+        
+        .image > p:first-child {
+            font-size: 60px;
+            transform: translateY(-250%);
+        }
+        
+        .image > p:last-child {
+            font-size: 60px;
+            transform: translateY(250%);
+        }
+        
+        .active p:first-child, .active p:last-child {
+            transform: translateY(0%);
+        }
+        
+        .active {
+            flex: 5;
+        }
+        
+        .active p:nth-child(2) {
+            font-size: 0;
+        }
+    
+        @media all and (max-width: 1000px)
+        {
+            .wrapper {
+                flex-wrap: wrap;
+                font-size: 30px;
+            }
+            .image {
+                flex-basis: 50%;
+            }
+            .image > p:first-child {
+                transform: translateY(0%);
+                font-size: 0px;
+            }
+        
+            .image > p:last-child {
+                transform: translateY(0%);
+                font-size: 0px;
+            }
+            
+            .active p:first-child, .active p:last-child {
+                font-size: 20px;
+            }
+        
+        }
+        
+    </style>
+    
+    
+    
+    <div class="wrapper">
+        
+        <div class="image image1">
+            <p> Give me </p>
+            <p> Iron Man </p>
+            <p> a Scotch </p>
+        </div>
+        <div class="image image2">
+            <p> Excuse Me </p>
+            <p> Thor </p>
+            <p> Have to destroy Jotunheim </p>
+        </div>
+        <div class="image image3">
+            <p> Run from it</p>
+            <p> Thanos </p>
+            <p> Destiny still arrives</p>
+        </div>
+        <div class="image image4">
+            <p>I'm with you</p>
+            <p> Captain America</p>
+            <p>Until the end of line</p>
+        </div>
+        <div class="image image5">
+            <p> Took the Green Revolution </p>
+            <p> Hulk </p>
+            <p> TOo seriously </p>
+        </div>
+        
+    </div>
+    
+</body>
+<script>
+    var images = document.querySelectorAll('.image')
+    
+    function highlight() {
+        this.classList.toggle('active');
+    }
+    
+    
+    images.forEach(image => image.addEventListener('click', highlight));
+    
+    
+</script>
+</html>
